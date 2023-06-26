@@ -1,0 +1,101 @@
+1.
+public class Homework5 {
+    public static void main(String[] args) {
+
+        int floor = 200;
+        int stepUp = 50;
+        int stepDown = 1;
+
+        int lifts = numberOfLifts(floor, stepUp, stepDown);
+        System.out.println("Количество подъемов: " + lifts);
+
+    }
+
+    public static int numberOfLifts(int floor, int stepUp, int stepDown) {
+
+
+
+        int lifts = 0;
+        int currentFloor = 0;
+
+
+        while (true) {
+            currentFloor += stepUp;
+
+            // Если лифт превысил количество этажей, считаем, что он поднялся на самый верх
+            if (currentFloor >= floor) {
+                lifts++;
+                break;
+            }
+
+            currentFloor -= stepDown;
+            lifts++;
+        }
+
+        return lifts;
+
+
+    }
+}
+"C:\Program Files\Java\jdk-17\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.1\lib\idea_rt.jar=53842:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.1\bin" -Dfile.encoding=UTF-8 -classpath C:\Users\milao\IdeaProjects\Java\Homework6\out\production\Homework6 Homework5
+Количество подъемов: 5
+
+Process finished with exit code 0
+
+
+2.
+import java.util.Scanner;
+
+public class Homework51 {
+
+
+
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Введите количество учеников: ");
+            int n = scanner.nextInt();
+            counter(n);
+        }
+
+        public static void counter(int n) {
+            int countA = 0;
+            int countB = 0;
+            int countC = 0;
+            int countD = 0;
+
+            Scanner scanner = new Scanner(System.in);
+            for (int i = 1; i <= n; i++) {
+                System.out.print("Введите оценку для ученика " + i + ": ");
+                String grade = scanner.next();
+
+                switch (grade) {
+                    case "A":
+                        countA++;
+                        break;
+                    case "B":
+                        countB++;
+                        break;
+                    case "C":
+                        countC++;
+                        break;
+                    case "D":
+                        countD++;
+                        break;
+                    default:
+                        System.out.println("Некорректная оценка.");
+                        i--; // Уменьшаем счетчик, чтобы повторно ввести оценку для данного ученика.
+                }
+            }
+
+            System.out.println("Количество оценок A: " + countA);
+            System.out.println("Количество оценок B: " + countB);
+            System.out.println("Количество оценок C: " + countC);
+            System.out.println("Количество оценок D: " + countD);
+        }
+    }
+
+"C:\Program Files\Java\jdk-17\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.1\lib\idea_rt.jar=53848:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.1\bin" -Dfile.encoding=UTF-8 -classpath C:\Users\milao\IdeaProjects\Java\Homework6\out\production\Homework6 Homework51
+Введите количество учеников: 5
+Введите оценку для ученика 1: 1
+Некорректная оценка.
+Введите оценку для ученика 1: 
